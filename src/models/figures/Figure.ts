@@ -1,5 +1,5 @@
 import { Colors } from "../Colors";
-import logo from "../../assets/black-kong.png";
+import logo from "../../assets/black-king.png";
 import { Cell } from "../Cell";
 
 export enum FigureNames {
@@ -22,6 +22,7 @@ export class Figure {
   constructor(color: Colors, cell: Cell) {
     this.color = color;
     this.cell = cell;
+    this.cell.figure = this;
     this.logo = null;
     this.name = FigureNames.Figure;
     this.id = Math.random();
