@@ -15,9 +15,9 @@ export class Board {
       const row: Cell[] = [];
       for (let j = 0; j < 8; j++) {
         if ((i + j) % 2 !== 0) {
-          row.push(new Cell(this, i, i, Colors.BLACK, null)); //черные клетки
+          row.push(new Cell(this, j, i, Colors.BLACK, null)); //черные клетки
         } else {
-          row.push(new Cell(this, i, i, Colors.WHITE, null)); // белые клетки
+          row.push(new Cell(this, j, i, Colors.WHITE, null)); // белые клетки
         }
       }
       this.cells.push(row);

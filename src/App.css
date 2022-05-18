@@ -39,3 +39,18 @@
 .black {
   background-color: deepskyblue;
 }
+
+.selected {
+  background-color: brown;
+}
+
+.avaible {
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  background-color: rgb(70, 172, 70);
+}
+
+.attackAvaible {
+  background-color: green;
+}
