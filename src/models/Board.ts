@@ -28,6 +28,22 @@ export class Board {
     return this.cells[y][x];
   }
 
+  public highLightCells(selectedCell: Cell | null) {
+    for (let i = 0; i < this.cells.length; i++) {
+      const row = this.cells[i];
+      for (let j = 0; j < row.length; j++) {
+        const target = row[j];
+        target.available = !!selectedCell?.figure?.CanMove(target);
+      }
+    }
+  }
+
+  public getNewBoard(): Board {
+    const newBoard = new Board();
+    newBoard.cells = this.cells;
+    return newBoard;
+  }
+
   private addPawns() {
     for (let i = 0; i < 8; i++) {
       new Pawn(Colors.BLACK, this.getCell(i, 1));
