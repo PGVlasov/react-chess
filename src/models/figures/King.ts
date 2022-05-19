@@ -10,4 +10,10 @@ export class King extends Figure {
     this.logo = color === Colors.BLACK ? blackLogo : whiteLogo;
     this.name = FigureNames.King;
   }
+  CanMove(target: Cell): boolean {
+    if (!super.CanMove(target)) {
+      return false;
+    }
+    return true;
+  }
 }

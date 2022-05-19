@@ -10,4 +10,10 @@ export class Pawn extends Figure {
     this.logo = color === Colors.BLACK ? blackLogo : whiteLogo;
     this.name = FigureNames.Panw;
   }
+  CanMove(target: Cell): boolean {
+    if (!super.CanMove(target)) {
+      return false;
+    }
+    return true;
+  }
 }
