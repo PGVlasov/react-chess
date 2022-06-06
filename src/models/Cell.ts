@@ -82,6 +82,22 @@ export class Cell {
     return true;
   }
 
+  kingsMove(target: Cell) {
+    if (this.x !== target.x) {
+      return false;
+    }
+
+    const min = Math.min(this.y, target.y - 1);
+    const max = Math.max(this.y, target.y + 1);
+    for (let y = min; y < max; y++) {
+      if (!this.board.getCell(this.x, y).isEmpty()) {
+        console.log(y);
+        return false;
+      }
+    }
+    return true;
+  }
+
   setFigure(figure: Figure) {
     this.figure = figure;
     this.figure.cell = this;

@@ -14,6 +14,22 @@ export class King extends Figure {
     if (!super.CanMove(target)) {
       return false;
     }
-    return true;
+
+    if (this.cell.kingsMove(target)) {
+      return true;
+    }
+    // if (this.cell.isEmptyVertical(target)) {
+    //   return true;
+    // }
+    // if (this.cell.isEmptyHoresontal(target)) {
+    //   return true;
+    // }
+    // if (this.cell.isEmptyDiagonal(target)) {
+    //   return true;
+    // }
+    // if (target.y === this.cell.y + 1 && target.x === this.cell.x + 1) {
+    //   return true;
+    // }
+    return false;
   }
 }

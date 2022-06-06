@@ -1,25 +1,22 @@
+import "bootstrap/dist/css/bootstrap.min.css";
 import React, { useEffect, useState } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-import { BoardComponent } from "./components/BoardComponent";
-import { Board } from "./models/Board";
+import { NavMenu } from "./components/NavMenu";
+import { AboutPage } from "./pages/AboutPage";
+import { BoardPage } from "./pages/BoardPage";
 
 function App() {
-  const [board, setBoard] = useState(new Board());
-
-  useEffect(() => {
-    restart();
-  }, []);
-
-  function restart() {
-    const newBoard = new Board();
-    newBoard.initCells();
-    newBoard.addFigures();
-    setBoard(newBoard);
-  }
   return (
-    <div className="app">
-      <BoardComponent board={board} setBoard={setBoard} />
-    </div>
+    <BrowserRouter>
+      <NavMenu />
+      <div className="app">
+        <Routes>
+          <Route path="/" element={<BoardPage />} />
+          <Route path="/about" element={<AboutPage />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
