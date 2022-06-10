@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { BoardComponent } from "../components/BoardComponent";
+import { LostFigures } from "../components/LostFigures";
+import { Timer } from "../components/Timer";
 import { Board } from "../models/Board";
 import { Colors } from "../models/Colors";
 import { Player } from "../models/Player";
@@ -28,11 +30,18 @@ export const BoardPage = () => {
     );
   }
   return (
-    <BoardComponent
-      board={board}
-      setBoard={setBoard}
-      currentPlayer={currentPlayer}
-      swapplayer={swapplayer}
-    />
+    <div className="app">
+      <Timer currentPlayer={currentPlayer} restart={restart} />
+      <BoardComponent
+        board={board}
+        setBoard={setBoard}
+        currentPlayer={currentPlayer}
+        swapplayer={swapplayer}
+      />
+      <div>
+        <LostFigures title="Черные Фигуры" figures={board.lostBlackFigures} />
+        <LostFigures title="Белые Фигуры" figures={board.lostWhiteFigures} />
+      </div>
+    </div>
   );
 };
