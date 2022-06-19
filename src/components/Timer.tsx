@@ -9,8 +9,8 @@ interface TimerProps {
 }
 
 export const Timer: React.FC<TimerProps> = ({ currentPlayer, restart }) => {
-  const [blackTimer, setBlackTimer] = useState(60);
-  const [whiteTimer, setWhiteTimer] = useState(60);
+  const [blackTimer, setBlackTimer] = useState(300);
+  const [whiteTimer, setWhiteTimer] = useState(300);
 
   const timer = useRef<null | ReturnType<typeof setInterval>>(null);
 
@@ -40,8 +40,8 @@ export const Timer: React.FC<TimerProps> = ({ currentPlayer, restart }) => {
   }
 
   function handleRestart() {
-    setWhiteTimer(60);
-    setBlackTimer(60);
+    setWhiteTimer(300);
+    setBlackTimer(300);
     restart();
   }
 
